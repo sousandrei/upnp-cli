@@ -16,6 +16,8 @@ func main() {
 	internal := flag.String("i", "", "internal ip:port")
 	external := flag.String("e", "", "external ip:port")
 	duration := flag.Uint("d", 30, "duration in seconds")
+	name := flag.String("n", "", "rule description/name")
+	udp := flag.Bool("u", false, "is udp, otherwise tcp")
 
 	flag.Parse()
 
@@ -46,14 +48,22 @@ func main() {
 	}
 	fmt.Println("Your external IP address is: ", externalIP)
 
+	var protocol string
+	switch *udp {
+	case true:
+		protocol = "UDP"
+	default:
+		protocol = "TCP"
+	}
+
 	if err := client.AddPortMapping(
 		externalAddr.Addr().String(),
 		externalAddr.Port(),
-		"TCP",
+		protocol,
 		internalAddr.Port(),
 		internalAddr.Addr().String(),
 		true,
-		"Test Andrei",
+		*name,
 		durationSeconds,
 	); err != nil {
 		log.Fatal(err)
