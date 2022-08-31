@@ -1,4 +1,4 @@
-module github.com/sousandrei/upnp
+module github.com/sousandrei/upnp-cli
 
 go 1.19
 
