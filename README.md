@@ -11,4 +11,7 @@ Usage of ./build/upnp:
         external ip:port
   -i string
         internal ip:port
+  -n string
+        rule description/name
+  -u    is udp, otherwise tcp
 ```
