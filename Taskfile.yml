@@ -21,7 +21,7 @@ tasks:
       - go build
         -o build/upnp
         -ldflags="-s -w"
-        src/main.go
+        main.go
 
   upx:
     cmds:
