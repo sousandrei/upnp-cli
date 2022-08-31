@@ -1,6 +1,14 @@
-Quick UPnP Cli
+## UPnP Cli
 
-This is a simple command line tool to open ports on your router using UPnP.
+Simple cli to open ports on your router using UPnP.
+
+### Installation
+
+```bash
+go install github.com/sousandrei/upnp-cli
+```
+
+### Usage
 
 ```
 ➜ ./upnp --help
