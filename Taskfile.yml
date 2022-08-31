@@ -1,0 +1,31 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: clean
+      - task: lint
+      - task: build
+      - task: upx
+
+  clean:
+    cmds:
+      - rm -rf ./build
+
+  lint:
+    cmds:
+      - golangci-lint run
+
+  build:
+    cmds:
+      - go build
+        -o build/upnp
+        -ldflags="-s -w"
+        src/main.go
+
+  upx:
+    cmds:
+      - upx
+        --best
+        --lzma
+        build/upnp
